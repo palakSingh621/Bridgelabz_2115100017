@@ -5,24 +5,35 @@ class Replace
 	{
 		Console.WriteLine("Enter the string: ");
 		String str=Convert.ToString(Console.ReadLine());
-		Console.WriteLine("Enter the charater to replace: ");
-		char replaceCharacter=Convert.ToChar(Console.ReadLine());
-		Console.WriteLine("Enter the character to replace with: ");
-		char replacingCharacter=Convert.ToChar(Console.ReadLine());
-		String result= ReplaceCharacter(str,replaceCharacter,replacingCharacter);
+		str=str.Trim();
+		str+=" ";
+		Console.WriteLine("Enter the word to replace: ");
+		String replaceWord=Convert.ToString(Console.ReadLine());
+		Console.WriteLine("Enter the Word to replace with: ");
+		String replacingWord=Convert.ToString(Console.ReadLine());
+		String result= ReplaceWord(str,replaceWord,replacingWord);
 		Console.WriteLine("Modified String: "+result);
 	}
 	// Method to loop through the string finding and replacing the character
-	public static String ReplaceCharacter(String s, char replace, char replaceWith)
+	public static String ReplaceWord(String s, String replace, String replaceWith)
 	{
 		String ans="";
+		String word="";
 		for(int i=0;i<s.Length;i++)
 		{
-			if(s[i] == replace)
+			if(s[i] == ' ')
 			{
-				ans+=replaceWith;
+				if(word == replace)
+				{
+					ans+=replaceWith;
+					word="";
+				}else{
+					ans+=word;
+					word="";
+				}
+				ans+=" ";
 			}else{
-				ans+=s[i];
+				word+=s[i];
 			}
 		}
 		return ans;
