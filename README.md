@@ -37,3 +37,6 @@
 ### **31-01-25**
   - Done the assignment of the string using builtin function
   - Read about oops concept
+### **02-01-25**
+  - Constructors, Instance vs. Class Variables, Access Modifiers Concepts
+  - Constructors, Instance vs. Class Variables, Access Modifiers Level 1 Assignment Submittion
