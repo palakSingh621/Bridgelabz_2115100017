@@ -37,6 +37,13 @@
 ### **31-01-25**
   - Done the assignment of the string using builtin function
   - Read about oops concept
-### **02-01-25**
+### **02-02-25**
   - Constructors, Instance vs. Class Variables, Access Modifiers Concepts
   - Constructors, Instance vs. Class Variables, Access Modifiers Level 1 Assignment Submittion
+### **03-02-25**
+  - Studied about this, sealed, is, readonly and const
+  - OOPs Concepts
+  - Encapsulation, Abstraction, Inheritance and Polymorphism
+### **04-02-25**
+  - Assignment 10 solution submittion
+  - Created a Bank Account system using OOPs Concepts
