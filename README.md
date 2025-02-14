@@ -61,3 +61,13 @@
   - Linked List Assignment Solution submittion
 ### **13-02-25**
   - Stack, Queue, Hash Map and Hashing Function Assignment
+### **14-02-25**
+  - Sorting Algorithms:
+    * Bubble Sort
+    * Insertion Sort
+    * Merge Sort
+    * Quick Sort
+    * Selection Sort
+    * Heap Sort
+    * Counting Sort
+  - Sorting Assignment Submittion
