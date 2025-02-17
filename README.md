@@ -71,6 +71,12 @@
     * Heap Sort
     * Counting Sort
   - Sorting Assignment Submittion
+  - Poco class
 ### **16-02-25**
   - StringBuilder, StringReader and StringWriter
   - Linear and Binary Search
+### **17-02-25**
+  - Algorithm's Runtime Analysis & Big-O Notation
+  - Assignment Submission
+  - Gerics
+  - Lamda funcctions and anonymous methods
