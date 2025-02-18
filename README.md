@@ -78,5 +78,8 @@
 ### **17-02-25**
   - Algorithm's Runtime Analysis & Big-O Notation
   - Assignment Submission
-  - Gerics
-  - Lamda funcctions and anonymous methods
+  - Generics
+  - Lamda functions and anonymous methods
+### **18-02-25**
+  - Generics Assignment solution
+  - Generic modifiers( in and out)
