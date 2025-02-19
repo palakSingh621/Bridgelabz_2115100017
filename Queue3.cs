@@ -8,7 +8,7 @@ namespace Assignment_20_Collections
         {
             PriorityQueue<string, int> triageQueue = new PriorityQueue<string, int>(Comparer<int>.Create((x, y) => y - x));
 
-            triageQueue.Enqueue("Abhinn", 3);
+            triageQueue.Enqueue("Palak", 3);
             triageQueue.Enqueue("Al Jazir", 5);
             triageQueue.Enqueue("Bobby", 2);
 
