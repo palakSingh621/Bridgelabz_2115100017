@@ -83,3 +83,5 @@
 ### **18-02-25**
   - Generics Assignment solution
   - Generic modifiers( in and out)
+### **19-02-25**
+  - Collections Assignment solutions
