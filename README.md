@@ -85,3 +85,5 @@
   - Generic modifiers( in and out)
 ### **19-02-25**
   - Collections Assignment solutions
+### **20-02-25**
+  - Streams Assignment solution submittion
