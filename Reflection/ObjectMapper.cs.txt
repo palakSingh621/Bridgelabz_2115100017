@@ -1,0 +1,54 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Reflection;
+
+class ObjectMapper
+{
+    public static T ToObject<T>(Dictionary<string, object> properties) where T : new()
+    {
+        T obj = new T();
+        Type type = typeof(T);
+
+        foreach (var property in properties)
+        {
+            PropertyInfo propInfo = type.GetProperty(property.Key, BindingFlags.Public | BindingFlags.Instance);
+            FieldInfo fieldInfo = type.GetField(property.Key, BindingFlags.Public | BindingFlags.Instance);
+
+            if (propInfo != null && propInfo.CanWrite)
+            {
+                propInfo.SetValue(obj, Convert.ChangeType(property.Value, propInfo.PropertyType));
+            }
+            else if (fieldInfo != null)
+            {
+                fieldInfo.SetValue(obj, Convert.ChangeType(property.Value, fieldInfo.FieldType));
+            }
+        }
+
+        return obj;
+    }
+}
+
+// Sample class to demonstrate mapping
+class Person
+{
+    public string Name { get; set; }
+    public int Age { get; set; }
+    public string Country;
+}
+
+class program8
+{
+    static void Main()
+    {
+        Dictionary<string, object> data = new Dictionary<string, object>
+        {
+            { "Name", "Alice" },
+            { "Age", 30 },
+            { "Country", "USA" }
+        };
+
+        Person person = ObjectMapper.ToObject<Person>(data);
+
+        Console.WriteLine($"Name: {person.Name}, Age: {person.Age}, Country: {person.Country}");
+    }
+}

@@ -1,0 +1,30 @@
+﻿using System;
+using System.Reflection;
+
+class Calculator
+{
+    private int Multiply(int a, int b)
+    {
+        return a * b;
+    }
+}
+
+class program1
+{
+    //static void Main()
+    //{
+    //    // Create an instance of Calculator
+    //    Calculator calculator = new Calculator();
+
+    //    // Get the Type object
+    //    Type type = typeof(Calculator);
+
+    //    // Get the private method info
+    //    MethodInfo multiplyMethod = type.GetMethod("Multiply", BindingFlags.NonPublic | BindingFlags.Instance);
+
+    //    // Invoke the private method
+    //    object result = multiplyMethod.Invoke(calculator, new object[] { 5, 10 });
+
+    //    Console.WriteLine("Result of Multiply: " + result);
+    //}
+}

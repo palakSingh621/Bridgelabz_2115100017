@@ -1,0 +1,47 @@
+﻿using System;
+using System.Reflection;
+
+class MathOperations
+{
+    public int Add(int a, int b) => a + b;
+    public int Subtract(int a, int b) => a - b;
+    public int Multiply(int a, int b) => a * b;
+}
+
+class program5
+{
+    static void Main()
+    {
+        MathOperations mathOps = new MathOperations();
+
+        Console.WriteLine("Enter method name (Add, Subtract, Multiply):");
+        string methodName = Console.ReadLine();
+
+        Console.WriteLine("Enter first number:");
+        if (!int.TryParse(Console.ReadLine(), out int num1))
+        {
+            Console.WriteLine("Invalid input for first number.");
+            return;
+        }
+
+        Console.WriteLine("Enter second number:");
+        if (!int.TryParse(Console.ReadLine(), out int num2))
+        {
+            Console.WriteLine("Invalid input for second number.");
+            return;
+        }
+
+        Type type = typeof(MathOperations);
+        MethodInfo method = type.GetMethod(methodName);
+
+        if (method != null)
+        {
+            object result = method.Invoke(mathOps, new object[] { num1, num2 });
+            Console.WriteLine($"Result: {result}");
+        }
+        else
+        {
+            Console.WriteLine("Method not found.");
+        }
+    }
+}

@@ -1,0 +1,38 @@
+﻿using System;
+using System.Reflection;
+
+class Student
+{
+    public string Name { get; set; }
+    public int Age { get; set; }
+
+    public Student(string name, int age)
+    {
+        Name = name;
+        Age = age;
+    }
+
+    public void Display()
+    {
+        Console.WriteLine($"Student Name: {Name}, Age: {Age}");
+    }
+}
+
+class program4
+{
+    static void Main()
+    {
+        // Get the Type object
+        Type type = typeof(Student);
+
+        // Get the constructor with parameters
+        ConstructorInfo constructor = type.GetConstructor(new Type[] { typeof(string), typeof(int) });
+
+        // Create an instance dynamically
+        object studentInstance = constructor.Invoke(new object[] { "John Doe", 20 });
+
+        // Get and invoke the Display method
+        MethodInfo displayMethod = type.GetMethod("Display");
+        displayMethod.Invoke(studentInstance, null);
+    }
+}

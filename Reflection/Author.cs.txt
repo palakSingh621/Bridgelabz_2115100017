@@ -1,0 +1,45 @@
+﻿using System;
+using System.Reflection;
+
+// Define a custom attribute
+[AttributeUsage(AttributeTargets.Class, Inherited = false)]
+class AuthorAttribute : Attribute
+{
+    public string Name { get; }
+
+    public AuthorAttribute(string name)
+    {
+        Name = name;
+    }
+}
+
+// Apply the custom attribute to a class
+[Author("John Doe")]
+class SampleClass
+{
+    public void Display()
+    {
+        Console.WriteLine("SampleClass method execution.");
+    }
+}
+
+class program6
+{
+    static void Main()
+    {
+        // Get the type of SampleClass
+        Type type = typeof(SampleClass);
+
+        // Retrieve custom attribute
+        AuthorAttribute attribute = (AuthorAttribute)Attribute.GetCustomAttribute(type, typeof(AuthorAttribute));
+
+        if (attribute != null)
+        {
+            Console.WriteLine($"Author: {attribute.Name}");
+        }
+        else
+        {
+            Console.WriteLine("No Author attribute found.");
+        }
+    }
+}

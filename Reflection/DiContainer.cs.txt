@@ -1,0 +1,105 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
+
+// Attribute to mark injectable constructors
+[AttributeUsage(AttributeTargets.Constructor)]
+class InjectAttribute : Attribute { }
+
+// Simple DI Container
+class DIContainer
+{
+    private readonly Dictionary<Type, Type> _registrations = new();
+
+    // Register a type mapping
+    public void Register<TInterface, TImplementation>() where TImplementation : TInterface
+    {
+        _registrations[typeof(TInterface)] = typeof(TImplementation);
+    }
+
+    // Resolve an instance of a type
+    public T Resolve<T>()
+    {
+        return (T)Resolve(typeof(T));
+    }
+
+    private object Resolve(Type type)
+    {
+        if (!_registrations.ContainsKey(type))
+        {
+            throw new Exception($"No registered implementation for {type}");
+        }
+
+        Type implementationType = _registrations[type];
+        ConstructorInfo constructor = implementationType
+            .GetConstructors()
+            .FirstOrDefault(c => c.GetCustomAttribute<InjectAttribute>() != null);
+
+        if (constructor == null)
+        {
+            throw new Exception($"No constructor with [Inject] found in {implementationType}");
+        }
+
+        // Resolve parameters
+        ParameterInfo[] parameters = constructor.GetParameters();
+        object[] parameterInstances = parameters
+            .Select(p => Resolve(p.ParameterType))
+            .ToArray();
+
+        return constructor.Invoke(parameterInstances);
+    }
+}
+
+// Sample services
+interface ILogger
+{
+    void Log(string message);
+}
+
+class ConsoleLogger : ILogger
+{
+    public void Log(string message)
+    {
+        Console.WriteLine($"[LOG]: {message}");
+    }
+}
+
+interface IService
+{
+    void Execute();
+}
+
+class Service : IService
+{
+    private readonly ILogger _logger;
+
+    [Inject]
+    public Service(ILogger logger)
+    {
+        _logger = logger;
+    }
+
+    public void Execute()
+    {
+        _logger.Log("Service executed.");
+    }
+}
+
+class program11
+{
+    static void Main()
+    {
+        DIContainer container = new DIContainer();
+
+        // Register dependencies
+        container.Register<ILogger, ConsoleLogger>();
+        container.Register<IService, Service>();
+
+        // Resolve IService, automatically injecting ILogger
+        IService service = container.Resolve<IService>();
+
+        // Call the method
+        service.Execute();
+    }
+}

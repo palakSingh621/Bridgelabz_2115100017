@@ -1,0 +1,37 @@
+﻿using System;
+using System.Reflection;
+
+class Configuration
+{
+    private static string API_KEY = "DEFAULT_KEY";
+
+    public static string GetApiKey()
+    {
+        return API_KEY;
+    }
+}
+
+class program7
+{
+    static void Main()
+    {
+        Type configType = typeof(Configuration);
+
+        // Retrieve the private static field
+        FieldInfo fieldInfo = configType.GetField("API_KEY", BindingFlags.NonPublic | BindingFlags.Static);
+
+        if (fieldInfo != null)
+        {
+            Console.WriteLine($"Original API_KEY: {Configuration.GetApiKey()}");
+
+            // Modify the private static field
+            fieldInfo.SetValue(null, "NEW_SECRET_KEY");
+
+            Console.WriteLine($"Modified API_KEY: {Configuration.GetApiKey()}");
+        }
+        else
+        {
+            Console.WriteLine("Field not found.");
+        }
+    }
+}

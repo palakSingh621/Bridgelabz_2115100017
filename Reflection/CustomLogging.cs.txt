@@ -1,0 +1,61 @@
+﻿using System;
+using System.Reflection;
+using System.Runtime.CompilerServices;
+
+public interface IGreeting
+{
+    void SayHello(string name);
+    string GetGreetingMessage(string name);
+}
+
+// Real implementation of IGreeting
+public class Greeting : IGreeting
+{
+    public void SayHello(string name)
+    {
+        Console.WriteLine($"Hello, {name}!");
+    }
+
+    public string GetGreetingMessage(string name)
+    {
+        return $"Greetings, {name}!";
+    }
+}
+
+// Logging Proxy using DispatchProxy
+public class LoggingProxy<T> : DispatchProxy
+{
+    private T _decorated;
+
+    public static T Create(T decorated)
+    {
+        T proxy = Create<T, LoggingProxy<T>>();
+        ((LoggingProxy<T>)proxy)._decorated = decorated;
+        return proxy;
+    }
+
+    protected override object Invoke(MethodInfo targetMethod, object[] args)
+    {
+        Console.WriteLine($"[LOG] Invoking method: {targetMethod.Name}");
+
+        object result = targetMethod.Invoke(_decorated, args);
+
+        Console.WriteLine($"[LOG] Method {targetMethod.Name} executed successfully.");
+
+        return result;
+    }
+}
+
+class program10
+{
+    static void Main()
+    {
+        IGreeting greeting = new Greeting();
+        IGreeting proxyGreeting = LoggingProxy<IGreeting>.Create(greeting);
+
+        proxyGreeting.SayHello("Alice");
+        string message = proxyGreeting.GetGreetingMessage("Bob");
+
+        Console.WriteLine($"Returned Message: {message}");
+    }
+}

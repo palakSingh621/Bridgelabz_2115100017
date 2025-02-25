@@ -1,0 +1,30 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Reflection;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Reflection
+{
+    internal class Person
+    {
+        //Attributes
+        private int age;
+
+        //Constructor
+        public Person(int age) {
+            this.age = age;
+        }
+    }
+
+    class ReflectPerson {
+        //public static void Main(String[] args) {
+        //    Person person1 = new Person(14);
+        //    Type type = typeof(Person);
+        //    FieldInfo fieldinfo = type.GetField("age", BindingFlags.NonPublic | BindingFlags.Instance);
+        //    Console.WriteLine("The value in the field is "+fieldinfo.GetValue(person1));
+        //}
+    } 
+}

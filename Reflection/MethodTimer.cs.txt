@@ -1,0 +1,63 @@
+﻿using System;
+using System.Diagnostics;
+using System.Reflection;
+
+class MethodTimer
+{
+    public static void MeasureExecutionTime(object obj, string methodName, object[] parameters)
+    {
+        Type type = obj.GetType();
+        MethodInfo method = type.GetMethod(methodName, BindingFlags.Public | BindingFlags.Instance);
+
+        if (method == null)
+        {
+            Console.WriteLine($"Method '{methodName}' not found.");
+            return;
+        }
+
+        Stopwatch stopwatch = Stopwatch.StartNew();
+
+        object result = method.Invoke(obj, parameters);
+
+        stopwatch.Stop();
+        Console.WriteLine($"Method '{methodName}' executed in {stopwatch.ElapsedMilliseconds} ms");
+
+        if (result != null)
+        {
+            Console.WriteLine($"Returned Value: {result}");
+        }
+    }
+}
+
+// Sample class with methods to measure
+class SampleOperations
+{
+    public void FastMethod()
+    {
+        Console.WriteLine("Executing FastMethod...");
+    }
+
+    public void SlowMethod()
+    {
+        Console.WriteLine("Executing SlowMethod...");
+        System.Threading.Thread.Sleep(1000); // Simulating delay
+    }
+
+    public int ComputeSum(int a, int b)
+    {
+        return a + b;
+    }
+}
+
+class program12
+{
+    static void Main()
+    {
+        SampleOperations operations = new SampleOperations();
+
+        // Measure execution time for different methods
+        MethodTimer.MeasureExecutionTime(operations, "FastMethod", new object[] { });
+        MethodTimer.MeasureExecutionTime(operations, "SlowMethod", new object[] { });
+        MethodTimer.MeasureExecutionTime(operations, "ComputeSum", new object[] { 5, 10 });
+    }
+}

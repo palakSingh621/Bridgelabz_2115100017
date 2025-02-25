@@ -1,0 +1,79 @@
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Reflection;
+using System.Text;
+
+class JsonSerializer
+{
+    public static string ToJson(object obj)
+    {
+        if (obj == null) return "null";
+
+        Type type = obj.GetType();
+        StringBuilder jsonBuilder = new StringBuilder();
+        jsonBuilder.Append("{");
+
+        FieldInfo[] fields = type.GetFields(BindingFlags.Public | BindingFlags.Instance);
+        PropertyInfo[] properties = type.GetProperties(BindingFlags.Public | BindingFlags.Instance);
+
+        List<string> jsonElements = new List<string>();
+
+        foreach (var field in fields)
+        {
+            jsonElements.Add($"\"{field.Name}\": {FormatValue(field.GetValue(obj))}");
+        }
+
+        foreach (var property in properties)
+        {
+            if (property.CanRead)
+            {
+                jsonElements.Add($"\"{property.Name}\": {FormatValue(property.GetValue(obj))}");
+            }
+        }
+
+        jsonBuilder.Append(string.Join(", ", jsonElements));
+        jsonBuilder.Append("}");
+
+        return jsonBuilder.ToString();
+    }
+
+    private static string FormatValue(object value)
+    {
+        if (value == null)
+            return "null";
+        if (value is string str)
+            return $"\"{str}\"";
+        if (value is bool boolVal)
+            return boolVal.ToString().ToLower();
+        if (value is IEnumerable enumerable)
+        {
+            List<string> elements = new List<string>();
+            foreach (var item in enumerable)
+            {
+                elements.Add(FormatValue(item));
+            }
+            return "[" + string.Join(", ", elements) + "]";
+        }
+        return value.ToString();
+    }
+}
+
+// Sample class for testing
+class Person1
+{
+    public string Name { get; set; }
+    public int Age { get; set; }
+    public string Country;
+    public List<string> Hobbies = new List<string> { "Reading", "Hiking" };
+}
+
+class program9
+{
+    static void Main()
+    {
+        Person1 person = new Person1 { Name = "Alice", Age = 30, Country = "USA" };
+        string json = JsonSerializer.ToJson(person);
+        Console.WriteLine(json);
+    }
+}

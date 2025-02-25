@@ -1,0 +1,45 @@
+﻿//using System;
+//using System.Reflection;
+
+//class program1
+//{
+//    static void Main()
+//    {
+//        Console.Write("Enter the fully qualified class name: ");
+//        string className = Console.ReadLine();
+
+//        try
+//        {
+//            Type type = Type.GetType(className);
+//            if (type == null)
+//            {
+//                Console.WriteLine("Class not found.");
+//                return;
+//            }
+
+//            Console.WriteLine("Class: " + type.FullName);
+//            Console.WriteLine("Methods:");
+//            MethodInfo[] methods = type.GetMethods();
+//            foreach (MethodInfo method in methods)
+//            {
+//                Console.WriteLine(method.ReturnType.Name + " " + method.Name);
+//            }
+//            Console.WriteLine("Fields:");
+//            FieldInfo[] fields = type.GetFields(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static);
+//            foreach (FieldInfo field in fields)
+//            {
+//                Console.WriteLine(field.FieldType.Name + " " + field.Name);
+//            }
+//            Console.WriteLine("Constructors:");
+//            ConstructorInfo[] constructors = type.GetConstructors();
+//            foreach (ConstructorInfo constructor in constructors)
+//            {
+//                Console.WriteLine(constructor.ToString());
+//            }
+//        }
+//        catch (Exception ex)
+//        {
+//            Console.WriteLine("Error: " + ex.Message);
+//        }
+//    }
+//}
