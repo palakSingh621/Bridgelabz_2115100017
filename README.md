@@ -91,3 +91,7 @@
   - Exceptiong Handeling Assignment Submission.
 ### **22-02-25**
   - Regex and NUnit Assignment Submission
+### **24-02-25**
+  - Annotation and Reflection Assignment Submission
+### **25-02-25** 
+  - CSV Data Handeling Assignment Submission
