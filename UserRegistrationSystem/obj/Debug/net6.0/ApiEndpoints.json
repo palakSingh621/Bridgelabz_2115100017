@@ -1,0 +1,54 @@
+[
+  {
+    "ContainingType": "UserRegistrationSystem.Controllers.UserRegistrationSystemController",
+    "Method": "Get",
+    "RelativePath": "UserRegistrationSystem",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "UserRegistrationSystem.Controllers.UserRegistrationSystemController",
+    "Method": "Login",
+    "RelativePath": "UserRegistrationSystem/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "loginDTO",
+        "Type": "ModelLayer.DTO.LoginDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "UserRegistrationSystem.Controllers.UserRegistrationSystemController",
+    "Method": "RegisterUser",
+    "RelativePath": "UserRegistrationSystem/register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "newUser",
+        "Type": "ModelLayer.DTO.LoginDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
