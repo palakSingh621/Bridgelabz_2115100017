@@ -95,3 +95,7 @@
   - Annotation and Reflection Assignment Submission
 ### **25-02-25** 
   - CSV Data Handeling Assignment Submission
+### **26-02-25**
+  - JSON Data Handeling Assignment Submission
+### **02-03-25**
+  - Web API Project on Creating User Registration System
