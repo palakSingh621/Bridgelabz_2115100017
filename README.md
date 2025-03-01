@@ -97,5 +97,8 @@
   - CSV Data Handeling Assignment Submission
 ### **26-02-25**
   - JSON Data Handeling Assignment Submission
-### **02-03-25**
+### **28-02-25**
   - Web API Project on Creating User Registration System
+### **01-03-25**
+  - Web API Project with the updates on submission of ORM - Entity Framework
+  - Logger using NLog
