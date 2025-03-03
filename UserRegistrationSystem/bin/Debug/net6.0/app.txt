@@ -1,0 +1,36 @@
+2025-03-03 11:46:34.2887 INFO Application Starting... 
+2025-03-03 11:46:35.1726 INFO Now listening on: https://localhost:7219 
+2025-03-03 11:46:35.1856 INFO Now listening on: http://localhost:5045 
+2025-03-03 11:46:35.2497 INFO Application started. Press Ctrl+C to shut down. 
+2025-03-03 11:46:35.2497 INFO Hosting environment: Development 
+2025-03-03 11:46:35.2497 INFO Content root path: C:\Users\user\source\repos\UserRegistrationSystem\ 
+2025-03-03 11:46:36.5213 INFO Request starting HTTP/2 GET https://localhost:7219/_framework/aspnetcore-browser-refresh.js - - 
+2025-03-03 11:46:36.5213 INFO Request starting HTTP/2 GET https://localhost:7219/Swagger/index.html - - 
+2025-03-03 11:46:36.5475 INFO Request finished HTTP/2 GET https://localhost:7219/_framework/aspnetcore-browser-refresh.js - - - 200 12376 application/javascript;+charset=utf-8 31.6730ms 
+2025-03-03 11:46:36.9499 INFO Request finished HTTP/2 GET https://localhost:7219/Swagger/index.html - - - 200 - text/html;charset=utf-8 434.8020ms 
+2025-03-03 11:46:36.9657 INFO Request starting HTTP/2 GET https://localhost:7219/_framework/aspnetcore-browser-refresh.js - - 
+2025-03-03 11:46:36.9657 INFO Request starting HTTP/2 GET https://localhost:7219/_vs/browserLink - - 
+2025-03-03 11:46:36.9657 INFO Request finished HTTP/2 GET https://localhost:7219/_framework/aspnetcore-browser-refresh.js - - - 200 12376 application/javascript;+charset=utf-8 4.6779ms 
+2025-03-03 11:46:37.1124 INFO Request finished HTTP/2 GET https://localhost:7219/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 144.0878ms 
+2025-03-03 11:46:37.2124 INFO Request starting HTTP/2 GET https://localhost:7219/swagger/v1/swagger.json - - 
+2025-03-03 11:46:37.2234 INFO Request finished HTTP/2 GET https://localhost:7219/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 11.0267ms 
+2025-03-03 11:46:49.0509 INFO Request starting HTTP/2 POST https://localhost:7219/UserRegistrationSystem/register application/json 79 
+2025-03-03 11:46:49.0625 INFO Executing endpoint 'UserRegistrationSystem.Controllers.UserRegistrationSystemController.RegisterUser (UserRegistrationSystem)' 
+2025-03-03 11:46:49.0973 INFO Route matched with {action = "RegisterUser", controller = "UserRegistrationSystem"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult RegisterUser(ModelLayer.DTO.LoginDTO) on controller UserRegistrationSystem.Controllers.UserRegistrationSystemController (UserRegistrationSystem). 
+2025-03-03 11:46:49.4363 INFO Register method called. 
+2025-03-03 11:46:49.4363 INFO Business Layer: Registering user... 
+2025-03-03 11:46:49.4510 INFO Repository Layer: Saving user data to DB... 
+2025-03-03 11:46:50.4706 INFO Entity Framework Core 6.0.36 initialized 'UserRegistrationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None 
+2025-03-03 11:46:52.2230 INFO Executed DbCommand (363ms) [Parameters=[@__newUser_Email_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Email] = @__newUser_Email_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END 
+2025-03-03 11:46:52.2706 WARN User registration failed: Email already exists. 
+2025-03-03 11:46:52.2706 INFO Executing ConflictObjectResult, writing value of type 'ModelLayer.DTO.ResponseModel`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'. 
+2025-03-03 11:46:52.2894 INFO Executed action UserRegistrationSystem.Controllers.UserRegistrationSystemController.RegisterUser (UserRegistrationSystem) in 3185.5219ms 
+2025-03-03 11:46:52.2894 INFO Executed endpoint 'UserRegistrationSystem.Controllers.UserRegistrationSystemController.RegisterUser (UserRegistrationSystem)' 
+2025-03-03 11:46:52.3020 INFO Request finished HTTP/2 POST https://localhost:7219/UserRegistrationSystem/register application/json 79 - 409 - application/json;+charset=utf-8 3250.9819ms 

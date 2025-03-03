@@ -1,0 +1,25 @@
+2025-03-03 11:42:39.5304 INFO Application Starting... 
+2025-03-03 11:42:40.5164 INFO Now listening on: https://localhost:7219 
+2025-03-03 11:42:40.5288 INFO Now listening on: http://localhost:5045 
+2025-03-03 11:42:40.5997 INFO Application started. Press Ctrl+C to shut down. 
+2025-03-03 11:42:40.5997 INFO Hosting environment: Development 
+2025-03-03 11:42:40.5997 INFO Content root path: C:\Users\user\source\repos\UserRegistrationSystem\ 
+2025-03-03 11:42:42.0102 INFO Request starting HTTP/2 GET https://localhost:7219/Swagger/index.html - - 
+2025-03-03 11:42:42.4962 INFO Request finished HTTP/2 GET https://localhost:7219/Swagger/index.html - - - 200 - text/html;charset=utf-8 491.1495ms 
+2025-03-03 11:42:42.7144 INFO Request starting HTTP/2 GET https://localhost:7219/_framework/aspnetcore-browser-refresh.js - - 
+2025-03-03 11:42:42.7313 INFO Request finished HTTP/2 GET https://localhost:7219/_framework/aspnetcore-browser-refresh.js - - - 200 12376 application/javascript;+charset=utf-8 16.9225ms 
+2025-03-03 11:42:42.7420 INFO Request starting HTTP/2 GET https://localhost:7219/_vs/browserLink - - 
+2025-03-03 11:42:42.7420 INFO Request starting HTTP/2 GET https://localhost:7219/_framework/aspnetcore-browser-refresh.js - - 
+2025-03-03 11:42:42.7420 INFO Request finished HTTP/2 GET https://localhost:7219/_framework/aspnetcore-browser-refresh.js - - - 200 12376 application/javascript;+charset=utf-8 1.0559ms 
+2025-03-03 11:42:42.8563 INFO Request finished HTTP/2 GET https://localhost:7219/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 114.1993ms 
+2025-03-03 11:42:42.9292 INFO Request starting HTTP/2 GET https://localhost:7219/swagger/v1/swagger.json - - 
+2025-03-03 11:42:42.9429 INFO Request finished HTTP/2 GET https://localhost:7219/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 13.5976ms 
+2025-03-03 11:42:46.1253 INFO Request starting HTTP/2 GET https://localhost:7219/_framework/aspnetcore-browser-refresh.js - - 
+2025-03-03 11:42:46.1253 INFO Request finished HTTP/2 GET https://localhost:7219/_framework/aspnetcore-browser-refresh.js - - - 200 12376 application/javascript;+charset=utf-8 1.6713ms 
+2025-03-03 11:42:51.2650 INFO Request starting HTTP/2 GET https://localhost:7219/UserRegistrationSystem - - 
+2025-03-03 11:42:51.2773 INFO Executing endpoint 'UserRegistrationSystem.Controllers.UserRegistrationSystemController.Get (UserRegistrationSystem)' 
+2025-03-03 11:42:51.2939 INFO Route matched with {action = "Get", controller = "UserRegistrationSystem"}. Executing controller action with signature System.String Get() on controller UserRegistrationSystem.Controllers.UserRegistrationSystemController (UserRegistrationSystem). 
+2025-03-03 11:42:51.6148 INFO Executing ObjectResult, writing value of type 'System.String'. 
+2025-03-03 11:42:51.6148 INFO Executed action UserRegistrationSystem.Controllers.UserRegistrationSystemController.Get (UserRegistrationSystem) in 322.31ms 
+2025-03-03 11:42:51.6148 INFO Executed endpoint 'UserRegistrationSystem.Controllers.UserRegistrationSystemController.Get (UserRegistrationSystem)' 
+2025-03-03 11:42:51.6340 INFO Request finished HTTP/2 GET https://localhost:7219/UserRegistrationSystem - - - 200 - text/plain;+charset=utf-8 368.9000ms 
