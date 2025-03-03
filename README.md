@@ -102,3 +102,5 @@
 ### **01-03-25**
   - Web API Project with the updates on submission of ORM - Entity Framework
   - Logger using NLog
+### **03-03-25**
+  - User Registration System Logger file and Swagger Setup Assignment Submission.
