@@ -1,0 +1,231 @@
+2025-03-03 11:48:04.2366 INFO Application Starting... 
+2025-03-03 11:48:05.3830 INFO Now listening on: https://localhost:7219 
+2025-03-03 11:48:05.4005 INFO Now listening on: http://localhost:5045 
+2025-03-03 11:48:05.4787 INFO Application started. Press Ctrl+C to shut down. 
+2025-03-03 11:48:05.4787 INFO Hosting environment: Development 
+2025-03-03 11:48:05.4787 INFO Content root path: C:\Users\user\source\repos\UserRegistrationSystem\ 
+2025-03-03 11:48:06.8387 INFO Request starting HTTP/2 GET https://localhost:7219/Swagger/index.html - - 
+2025-03-03 11:48:06.8387 INFO Request starting HTTP/2 GET https://localhost:7219/_framework/aspnetcore-browser-refresh.js - - 
+2025-03-03 11:48:06.8613 INFO Request finished HTTP/2 GET https://localhost:7219/_framework/aspnetcore-browser-refresh.js - - - 200 12376 application/javascript;+charset=utf-8 26.4543ms 
+2025-03-03 11:48:07.3463 INFO Request finished HTTP/2 GET https://localhost:7219/Swagger/index.html - - - 200 - text/html;charset=utf-8 512.9071ms 
+2025-03-03 11:48:07.5449 INFO Request starting HTTP/2 GET https://localhost:7219/_vs/browserLink - - 
+2025-03-03 11:48:07.5449 INFO Request starting HTTP/2 GET https://localhost:7219/_framework/aspnetcore-browser-refresh.js - - 
+2025-03-03 11:48:07.5449 INFO Request finished HTTP/2 GET https://localhost:7219/_framework/aspnetcore-browser-refresh.js - - - 200 12376 application/javascript;+charset=utf-8 1.7667ms 
+2025-03-03 11:48:07.6576 INFO Request finished HTTP/2 GET https://localhost:7219/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 112.6874ms 
+2025-03-03 11:48:07.7306 INFO Request starting HTTP/2 GET https://localhost:7219/swagger/v1/swagger.json - - 
+2025-03-03 11:48:07.7433 INFO Request finished HTTP/2 GET https://localhost:7219/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 12.6494ms 
+2025-03-03 11:48:18.6323 INFO Request starting HTTP/2 POST https://localhost:7219/UserRegistrationSystem/register application/json 79 
+2025-03-03 11:48:18.6481 INFO Executing endpoint 'UserRegistrationSystem.Controllers.UserRegistrationSystemController.RegisterUser (UserRegistrationSystem)' 
+2025-03-03 11:48:18.6903 INFO Route matched with {action = "RegisterUser", controller = "UserRegistrationSystem"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult RegisterUser(ModelLayer.DTO.LoginDTO) on controller UserRegistrationSystem.Controllers.UserRegistrationSystemController (UserRegistrationSystem). 
+2025-03-03 11:48:19.0664 INFO Register method called. 
+2025-03-03 11:48:19.0664 INFO Business Layer: Registering user... 
+2025-03-03 11:48:19.0822 INFO Repository Layer: Saving user data to DB... 
+2025-03-03 11:48:20.1808 INFO Entity Framework Core 6.0.36 initialized 'UserRegistrationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None 
+2025-03-03 11:48:22.1078 INFO Executed DbCommand (369ms) [Parameters=[@__newUser_Email_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Email] = @__newUser_Email_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END 
+2025-03-03 11:48:22.1812 WARN User registration failed: Email already exists. 
+2025-03-03 11:48:22.1981 INFO Executing ConflictObjectResult, writing value of type 'ModelLayer.DTO.ResponseModel`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'. 
+2025-03-03 11:48:22.2151 INFO Executed action UserRegistrationSystem.Controllers.UserRegistrationSystemController.RegisterUser (UserRegistrationSystem) in 3514.2459ms 
+2025-03-03 11:48:22.2151 INFO Executed endpoint 'UserRegistrationSystem.Controllers.UserRegistrationSystemController.RegisterUser (UserRegistrationSystem)' 
+2025-03-03 11:48:22.2387 INFO Request finished HTTP/2 POST https://localhost:7219/UserRegistrationSystem/register application/json 79 - 409 - application/json;+charset=utf-8 3606.9015ms 
+2025-03-03 11:49:17.3664 INFO Request starting HTTP/2 POST https://localhost:7219/UserRegistrationSystem/register application/json 85 
+2025-03-03 11:49:17.3664 INFO Executing endpoint 'UserRegistrationSystem.Controllers.UserRegistrationSystemController.RegisterUser (UserRegistrationSystem)' 
+2025-03-03 11:49:17.3664 INFO Route matched with {action = "RegisterUser", controller = "UserRegistrationSystem"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult RegisterUser(ModelLayer.DTO.LoginDTO) on controller UserRegistrationSystem.Controllers.UserRegistrationSystemController (UserRegistrationSystem). 
+2025-03-03 11:49:17.3664 INFO Register method called. 
+2025-03-03 11:49:17.3664 INFO Business Layer: Registering user... 
+2025-03-03 11:49:17.3664 INFO Repository Layer: Saving user data to DB... 
+2025-03-03 11:49:17.3814 INFO Entity Framework Core 6.0.36 initialized 'UserRegistrationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None 
+2025-03-03 11:49:17.4082 INFO Executed DbCommand (12ms) [Parameters=[@__newUser_Email_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Email] = @__newUser_Email_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END 
+2025-03-03 11:49:18.0906 INFO Executed DbCommand (309ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Users] ([Email], [FirstName], [LastName], [Password])
+VALUES (@p0, @p1, @p2, @p3);
+SELECT [UserId]
+FROM [Users]
+WHERE @@ROWCOUNT = 1 AND [UserId] = scope_identity(); 
+2025-03-03 11:49:18.1756 INFO User Registered successfully. 
+2025-03-03 11:49:18.1765 INFO Executing OkObjectResult, writing value of type 'ModelLayer.DTO.ResponseModel`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'. 
+2025-03-03 11:49:18.1765 INFO Executed action UserRegistrationSystem.Controllers.UserRegistrationSystemController.RegisterUser (UserRegistrationSystem) in 801.5867ms 
+2025-03-03 11:49:18.1765 INFO Executed endpoint 'UserRegistrationSystem.Controllers.UserRegistrationSystemController.RegisterUser (UserRegistrationSystem)' 
+2025-03-03 11:49:18.1765 INFO Request finished HTTP/2 POST https://localhost:7219/UserRegistrationSystem/register application/json 85 - 200 - application/json;+charset=utf-8 812.0343ms 
+2025-03-03 11:49:43.0577 INFO Request starting HTTP/2 POST https://localhost:7219/UserRegistrationSystem/login application/json 85 
+2025-03-03 11:49:43.0717 INFO Executing endpoint 'UserRegistrationSystem.Controllers.UserRegistrationSystemController.Login (UserRegistrationSystem)' 
+2025-03-03 11:49:43.0717 INFO Route matched with {action = "Login", controller = "UserRegistrationSystem"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(ModelLayer.DTO.LoginDTO) on controller UserRegistrationSystem.Controllers.UserRegistrationSystemController (UserRegistrationSystem). 
+2025-03-03 11:49:43.1743 INFO Entity Framework Core 6.0.36 initialized 'UserRegistrationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None 
+2025-03-03 11:49:43.2491 INFO Executed DbCommand (6ms) [Parameters=[@__email_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[Email], [u].[FirstName], [u].[LastName], [u].[Password]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__email_0 
+2025-03-03 11:49:43.2588 INFO User string@.com logged in successfully. 
+2025-03-03 11:49:43.2588 INFO Executing OkObjectResult, writing value of type 'ModelLayer.DTO.ResponseModel`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'. 
+2025-03-03 11:49:43.2588 INFO Executed action UserRegistrationSystem.Controllers.UserRegistrationSystemController.Login (UserRegistrationSystem) in 179.2662ms 
+2025-03-03 11:49:43.2588 INFO Executed endpoint 'UserRegistrationSystem.Controllers.UserRegistrationSystemController.Login (UserRegistrationSystem)' 
+2025-03-03 11:49:43.2588 INFO Request finished HTTP/2 POST https://localhost:7219/UserRegistrationSystem/login application/json 85 - 200 - application/json;+charset=utf-8 204.6311ms 
+2025-03-03 12:25:17.0149 INFO Application Starting... 
+2025-03-03 12:25:18.0257 INFO Now listening on: https://localhost:7219 
+2025-03-03 12:25:18.0373 INFO Now listening on: http://localhost:5045 
+2025-03-03 12:25:18.1151 INFO Application started. Press Ctrl+C to shut down. 
+2025-03-03 12:25:18.1151 INFO Hosting environment: Development 
+2025-03-03 12:25:18.1151 INFO Content root path: C:\Users\user\source\repos\UserRegistrationSystem\ 
+2025-03-03 12:25:19.3877 INFO Request starting HTTP/2 GET https://localhost:7219/Swagger/index.html - - 
+2025-03-03 12:25:19.7812 INFO Request finished HTTP/2 GET https://localhost:7219/Swagger/index.html - - - 200 - text/html;charset=utf-8 398.3887ms 
+2025-03-03 12:25:19.7890 INFO Request starting HTTP/2 GET https://localhost:7219/_framework/aspnetcore-browser-refresh.js - - 
+2025-03-03 12:25:19.8050 INFO Request finished HTTP/2 GET https://localhost:7219/_framework/aspnetcore-browser-refresh.js - - - 200 12376 application/javascript;+charset=utf-8 15.9311ms 
+2025-03-03 12:25:19.8050 INFO Request starting HTTP/2 GET https://localhost:7219/_vs/browserLink - - 
+2025-03-03 12:25:19.8873 INFO Request finished HTTP/2 GET https://localhost:7219/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 78.3408ms 
+2025-03-03 12:25:19.9321 INFO Request starting HTTP/2 GET https://localhost:7219/swagger/v1/swagger.json - - 
+2025-03-03 12:25:19.9321 INFO Request finished HTTP/2 GET https://localhost:7219/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 8.4198ms 
+2025-03-03 12:25:34.1796 INFO Request starting HTTP/2 POST https://localhost:7219/UserRegistrationSystem/login application/json 38 
+2025-03-03 12:25:34.2018 INFO Executing endpoint 'UserRegistrationSystem.Controllers.UserRegistrationSystemController.Login (UserRegistrationSystem)' 
+2025-03-03 12:25:34.2496 INFO Route matched with {action = "Login", controller = "UserRegistrationSystem"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(ModelLayer.DTO.LoginDTO) on controller UserRegistrationSystem.Controllers.UserRegistrationSystemController (UserRegistrationSystem). 
+2025-03-03 12:25:35.9161 INFO Entity Framework Core 6.0.36 initialized 'UserRegistrationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None 
+2025-03-03 12:25:37.5964 INFO Executed DbCommand (116ms) [Parameters=[@__email_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[Email], [u].[FirstName], [u].[LastName], [u].[Password]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__email_0 
+2025-03-03 12:25:37.8506 INFO User string logged in successfully. 
+2025-03-03 12:25:37.8506 INFO Executing OkObjectResult, writing value of type 'ModelLayer.DTO.ResponseModel`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'. 
+2025-03-03 12:25:37.8700 INFO Executed action UserRegistrationSystem.Controllers.UserRegistrationSystemController.Login (UserRegistrationSystem) in 3613.8367ms 
+2025-03-03 12:25:37.8700 INFO Executed endpoint 'UserRegistrationSystem.Controllers.UserRegistrationSystemController.Login (UserRegistrationSystem)' 
+2025-03-03 12:25:37.8854 INFO Request finished HTTP/2 POST https://localhost:7219/UserRegistrationSystem/login application/json 38 - 200 - application/json;+charset=utf-8 3705.7571ms 
+2025-03-03 12:26:54.6121 INFO Request starting HTTP/2 POST https://localhost:7219/UserRegistrationSystem/register application/json 96 
+2025-03-03 12:26:54.6812 INFO Executing endpoint 'UserRegistrationSystem.Controllers.UserRegistrationSystemController.RegisterUser (UserRegistrationSystem)' 
+2025-03-03 12:26:54.6812 INFO Route matched with {action = "RegisterUser", controller = "UserRegistrationSystem"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult RegisterUser(ModelLayer.DTO.RegisterDTO) on controller UserRegistrationSystem.Controllers.UserRegistrationSystemController (UserRegistrationSystem). 
+2025-03-03 12:26:54.6951 INFO Register method called. 
+2025-03-03 12:26:54.6951 INFO Business Layer: Registering user... 
+2025-03-03 12:26:54.6951 INFO Repository Layer: Saving user data to DB... 
+2025-03-03 12:26:54.6951 INFO Entity Framework Core 6.0.36 initialized 'UserRegistrationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None 
+2025-03-03 12:26:54.8229 INFO Executed DbCommand (21ms) [Parameters=[@__newUser_Email_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Email] = @__newUser_Email_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END 
+2025-03-03 12:26:55.0891 INFO Executed DbCommand (31ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Users] ([Email], [FirstName], [LastName], [Password])
+VALUES (@p0, @p1, @p2, @p3);
+SELECT [UserId]
+FROM [Users]
+WHERE @@ROWCOUNT = 1 AND [UserId] = scope_identity(); 
+2025-03-03 12:26:55.1749 INFO User Registered successfully. 
+2025-03-03 12:26:55.1749 INFO Executing OkObjectResult, writing value of type 'ModelLayer.DTO.ResponseModel`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'. 
+2025-03-03 12:26:55.1767 INFO Executed action UserRegistrationSystem.Controllers.UserRegistrationSystemController.RegisterUser (UserRegistrationSystem) in 490.8456ms 
+2025-03-03 12:26:55.1767 INFO Executed endpoint 'UserRegistrationSystem.Controllers.UserRegistrationSystemController.RegisterUser (UserRegistrationSystem)' 
+2025-03-03 12:26:55.1767 INFO Request finished HTTP/2 POST https://localhost:7219/UserRegistrationSystem/register application/json 96 - 200 - application/json;+charset=utf-8 565.6903ms 
+2025-03-03 12:27:32.5611 INFO Request starting HTTP/2 POST https://localhost:7219/UserRegistrationSystem/login application/json 54 
+2025-03-03 12:27:32.5667 INFO Executing endpoint 'UserRegistrationSystem.Controllers.UserRegistrationSystemController.Login (UserRegistrationSystem)' 
+2025-03-03 12:27:32.5667 INFO Route matched with {action = "Login", controller = "UserRegistrationSystem"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(ModelLayer.DTO.LoginDTO) on controller UserRegistrationSystem.Controllers.UserRegistrationSystemController (UserRegistrationSystem). 
+2025-03-03 12:27:32.6330 INFO Entity Framework Core 6.0.36 initialized 'UserRegistrationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None 
+2025-03-03 12:27:32.6485 INFO Executed DbCommand (7ms) [Parameters=[@__email_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[Email], [u].[FirstName], [u].[LastName], [u].[Password]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__email_0 
+2025-03-03 12:27:32.6485 INFO User abhinn000000@gmail.com logged in successfully. 
+2025-03-03 12:27:32.6485 INFO Executing OkObjectResult, writing value of type 'ModelLayer.DTO.ResponseModel`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'. 
+2025-03-03 12:27:32.6485 INFO Executed action UserRegistrationSystem.Controllers.UserRegistrationSystemController.Login (UserRegistrationSystem) in 82.0997ms 
+2025-03-03 12:27:32.6485 INFO Executed endpoint 'UserRegistrationSystem.Controllers.UserRegistrationSystemController.Login (UserRegistrationSystem)' 
+2025-03-03 12:27:32.6485 INFO Request finished HTTP/2 POST https://localhost:7219/UserRegistrationSystem/login application/json 54 - 200 - application/json;+charset=utf-8 89.8366ms 
+2025-03-03 12:27:47.6102 INFO Request starting HTTP/2 POST https://localhost:7219/UserRegistrationSystem/login application/json 59 
+2025-03-03 12:27:47.6160 INFO Executing endpoint 'UserRegistrationSystem.Controllers.UserRegistrationSystemController.Login (UserRegistrationSystem)' 
+2025-03-03 12:27:47.6160 INFO Route matched with {action = "Login", controller = "UserRegistrationSystem"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(ModelLayer.DTO.LoginDTO) on controller UserRegistrationSystem.Controllers.UserRegistrationSystemController (UserRegistrationSystem). 
+2025-03-03 12:27:47.6160 INFO Entity Framework Core 6.0.36 initialized 'UserRegistrationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None 
+2025-03-03 12:27:47.6160 INFO Executed DbCommand (4ms) [Parameters=[@__email_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[Email], [u].[FirstName], [u].[LastName], [u].[Password]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__email_0 
+2025-03-03 12:27:47.6160 WARN Failed login attempt for abhinn000000@gmail.com. 
+2025-03-03 12:27:47.6315 INFO Executing UnauthorizedObjectResult, writing value of type 'ModelLayer.DTO.ResponseModel`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'. 
+2025-03-03 12:27:47.6315 INFO Executed action UserRegistrationSystem.Controllers.UserRegistrationSystemController.Login (UserRegistrationSystem) in 11.0495ms 
+2025-03-03 12:27:47.6315 INFO Executed endpoint 'UserRegistrationSystem.Controllers.UserRegistrationSystemController.Login (UserRegistrationSystem)' 
+2025-03-03 12:27:47.6315 INFO Request finished HTTP/2 POST https://localhost:7219/UserRegistrationSystem/login application/json 59 - 401 - application/json;+charset=utf-8 24.4906ms 
+2025-03-03 18:07:43.5945 INFO Application Starting... 
+2025-03-03 18:07:45.3662 INFO Now listening on: https://localhost:7219 
+2025-03-03 18:07:45.3662 INFO Now listening on: http://localhost:5045 
+2025-03-03 18:07:45.4373 INFO Application started. Press Ctrl+C to shut down. 
+2025-03-03 18:07:45.4373 INFO Hosting environment: Development 
+2025-03-03 18:07:45.4373 INFO Content root path: C:\Users\user\source\repos\UserRegistrationSystem\ 
+2025-03-03 18:07:46.5332 INFO Request starting HTTP/2 GET https://localhost:7219/Swagger/index.html - - 
+2025-03-03 18:07:46.9268 INFO Request finished HTTP/2 GET https://localhost:7219/Swagger/index.html - - - 200 - text/html;charset=utf-8 395.2221ms 
+2025-03-03 18:07:46.9599 INFO Request starting HTTP/2 GET https://localhost:7219/_vs/browserLink - - 
+2025-03-03 18:07:46.9599 INFO Request starting HTTP/2 GET https://localhost:7219/_framework/aspnetcore-browser-refresh.js - - 
+2025-03-03 18:07:46.9599 INFO Request finished HTTP/2 GET https://localhost:7219/_framework/aspnetcore-browser-refresh.js - - - 200 12376 application/javascript;+charset=utf-8 5.3650ms 
+2025-03-03 18:07:47.0685 INFO Request finished HTTP/2 GET https://localhost:7219/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 108.5522ms 
+2025-03-03 18:07:47.1299 INFO Request starting HTTP/2 GET https://localhost:7219/swagger/v1/swagger.json - - 
+2025-03-03 18:07:47.1299 INFO Request finished HTTP/2 GET https://localhost:7219/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 11.9658ms 
+2025-03-03 20:14:17.0339 INFO Application Starting... 
+2025-03-03 20:14:18.1939 INFO Now listening on: https://localhost:7219 
+2025-03-03 20:14:18.1939 INFO Now listening on: http://localhost:5045 
+2025-03-03 20:14:18.2727 INFO Application started. Press Ctrl+C to shut down. 
+2025-03-03 20:14:18.2727 INFO Hosting environment: Development 
+2025-03-03 20:14:18.2727 INFO Content root path: C:\Users\user\source\repos\UserRegistrationSystem\ 
+2025-03-03 20:14:20.0213 INFO Request starting HTTP/2 GET https://localhost:7219/Swagger/index.html - - 
+2025-03-03 20:14:20.7993 INFO Request finished HTTP/2 GET https://localhost:7219/Swagger/index.html - - - 200 - text/html;charset=utf-8 782.9460ms 
+2025-03-03 20:14:20.8350 INFO Request starting HTTP/2 GET https://localhost:7219/_framework/aspnetcore-browser-refresh.js - - 
+2025-03-03 20:14:20.8350 INFO Request finished HTTP/2 GET https://localhost:7219/_framework/aspnetcore-browser-refresh.js - - - 200 12376 application/javascript;+charset=utf-8 10.7355ms 
+2025-03-03 20:14:20.8713 INFO Request starting HTTP/2 GET https://localhost:7219/_vs/browserLink - - 
+2025-03-03 20:14:21.0209 INFO Request finished HTTP/2 GET https://localhost:7219/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 149.6221ms 
+2025-03-03 20:14:21.1326 INFO Request starting HTTP/2 GET https://localhost:7219/swagger/v1/swagger.json - - 
+2025-03-03 20:14:21.1470 INFO Request finished HTTP/2 GET https://localhost:7219/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 14.4504ms 
+2025-03-03 20:15:47.9013 INFO Request starting HTTP/2 GET https://localhost:7219/UserRegistrationSystem - - 
+2025-03-03 20:15:47.9139 INFO Executing endpoint 'UserRegistrationSystem.Controllers.UserRegistrationSystemController.Get (UserRegistrationSystem)' 
+2025-03-03 20:15:47.9315 INFO Route matched with {action = "Get", controller = "UserRegistrationSystem"}. Executing controller action with signature System.String Get() on controller UserRegistrationSystem.Controllers.UserRegistrationSystemController (UserRegistrationSystem). 
+2025-03-03 20:15:48.2360 INFO Executing ObjectResult, writing value of type 'System.String'. 
+2025-03-03 20:15:48.2432 INFO Executed action UserRegistrationSystem.Controllers.UserRegistrationSystemController.Get (UserRegistrationSystem) in 305.873ms 
+2025-03-03 20:15:48.2432 INFO Executed endpoint 'UserRegistrationSystem.Controllers.UserRegistrationSystemController.Get (UserRegistrationSystem)' 
+2025-03-03 20:15:48.2432 INFO Request finished HTTP/2 GET https://localhost:7219/UserRegistrationSystem - - - 200 - text/plain;+charset=utf-8 347.2215ms 
+2025-03-03 20:16:11.8884 INFO Request starting HTTP/2 POST https://localhost:7219/UserRegistrationSystem/register application/json 83 
+2025-03-03 20:16:11.8950 INFO Executing endpoint 'UserRegistrationSystem.Controllers.UserRegistrationSystemController.RegisterUser (UserRegistrationSystem)' 
+2025-03-03 20:16:11.8950 INFO Route matched with {action = "RegisterUser", controller = "UserRegistrationSystem"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult RegisterUser(ModelLayer.DTO.RegisterDTO) on controller UserRegistrationSystem.Controllers.UserRegistrationSystemController (UserRegistrationSystem). 
+2025-03-03 20:16:11.9642 INFO Register method called. 
+2025-03-03 20:16:11.9642 INFO Business Layer: Registering user... 
+2025-03-03 20:16:11.9813 INFO Repository Layer: Saving user data to DB... 
+2025-03-03 20:16:12.6259 INFO Entity Framework Core 6.0.36 initialized 'UserRegistrationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None 
+2025-03-03 20:16:13.9147 INFO Executed DbCommand (122ms) [Parameters=[@__newUser_Email_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[Email] = @__newUser_Email_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END 
+2025-03-03 20:16:14.1632 INFO Executed DbCommand (33ms) [Parameters=[@p0='?' (Size = 4000), @p1='?' (Size = 4000), @p2='?' (Size = 4000), @p3='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [Users] ([Email], [FirstName], [LastName], [Password])
+VALUES (@p0, @p1, @p2, @p3);
+SELECT [UserId]
+FROM [Users]
+WHERE @@ROWCOUNT = 1 AND [UserId] = scope_identity(); 
+2025-03-03 20:16:14.2094 INFO User Registered successfully. 
+2025-03-03 20:16:14.2094 INFO Executing OkObjectResult, writing value of type 'ModelLayer.DTO.ResponseModel`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'. 
+2025-03-03 20:16:14.2094 INFO Executed action UserRegistrationSystem.Controllers.UserRegistrationSystemController.RegisterUser (UserRegistrationSystem) in 2301.7872ms 
+2025-03-03 20:16:14.2094 INFO Executed endpoint 'UserRegistrationSystem.Controllers.UserRegistrationSystemController.RegisterUser (UserRegistrationSystem)' 
+2025-03-03 20:16:14.2094 INFO Request finished HTTP/2 POST https://localhost:7219/UserRegistrationSystem/register application/json 83 - 200 - application/json;+charset=utf-8 2330.2514ms 
+2025-03-03 20:17:51.0742 INFO Request starting HTTP/2 POST https://localhost:7219/UserRegistrationSystem/login application/json 38 
+2025-03-03 20:17:51.0742 INFO Executing endpoint 'UserRegistrationSystem.Controllers.UserRegistrationSystemController.Login (UserRegistrationSystem)' 
+2025-03-03 20:17:51.0881 INFO Route matched with {action = "Login", controller = "UserRegistrationSystem"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult Login(ModelLayer.DTO.LoginDTO) on controller UserRegistrationSystem.Controllers.UserRegistrationSystemController (UserRegistrationSystem). 
+2025-03-03 20:17:51.1387 INFO Entity Framework Core 6.0.36 initialized 'UserRegistrationContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.36' with options: None 
+2025-03-03 20:17:51.1973 INFO Executed DbCommand (12ms) [Parameters=[@__email_0='?' (Size = 4000)], CommandType='Text', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[Email], [u].[FirstName], [u].[LastName], [u].[Password]
+FROM [Users] AS [u]
+WHERE [u].[Email] = @__email_0 
+2025-03-03 20:17:51.1973 INFO User string logged in successfully. 
+2025-03-03 20:17:51.1973 INFO Executing OkObjectResult, writing value of type 'ModelLayer.DTO.ResponseModel`1[[System.String, System.Private.CoreLib, Version=6.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'. 
+2025-03-03 20:17:51.1973 INFO Executed action UserRegistrationSystem.Controllers.UserRegistrationSystemController.Login (UserRegistrationSystem) in 116.8651ms 
+2025-03-03 20:17:51.1973 INFO Executed endpoint 'UserRegistrationSystem.Controllers.UserRegistrationSystemController.Login (UserRegistrationSystem)' 
+2025-03-03 20:17:51.1973 INFO Request finished HTTP/2 POST https://localhost:7219/UserRegistrationSystem/login application/json 38 - 200 - application/json;+charset=utf-8 131.8706ms 
